@@ -20,6 +20,8 @@ class NotifyPlugin(Plugin):
     def begin(self):
         """Displays the start message."""
 
+
+        pynotify.init("nose-notify")
         self.start_time = datetime.datetime.now()
         self.start_notification = pynotify.Notification(
             "Starting tests",
