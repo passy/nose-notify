@@ -19,7 +19,7 @@ setup(
     version=__version__,
     author="Pascal Hartig",
     author_email="phartig@rdrei.de",
-    description="A nose plugin to run selenium tests with django",
+    description="A nose plugin to display testsuite progress in the notify osd",
     url="http://github.com/passy/nose-notify",
     packages=['nosenotify'],
     long_description=__doc__,
