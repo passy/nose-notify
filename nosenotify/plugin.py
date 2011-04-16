@@ -57,5 +57,4 @@ class NotifyPlugin(Plugin):
         super(NotifyPlugin, self).options(parser, env)
         parser.add_option('--no-start-message', action='store_false', dest='show_start_message')
         options, args = parser.parse_args()
-        print getattr(options, 'show_start_message')
         self.show_start_message = getattr(options, 'show_start_message', True)
