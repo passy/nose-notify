@@ -18,15 +18,17 @@ class NotifyPlugin(Plugin):
     """Enable notify-osd notifications."""
 
     def begin(self):
-        """Displays the start message."""
+        """Optionaly displays the start message."""
 
 
         pynotify.init("nose-notify")
         self.start_time = datetime.datetime.now()
-        self.start_notification = pynotify.Notification(
-            "Starting tests",
-            "Started at {0}".format(self.start_time.isoformat())
-        ).show()
+
+        if self.show_start_message is not False:
+            self.start_notification = pynotify.Notification(
+                "Starting tests",
+                "Started at {0}".format(self.start_time.isoformat())
+            ).show()
 
     def finalize(self, result=None):
         """Display success or failure message."""
@@ -50,3 +52,10 @@ class NotifyPlugin(Plugin):
             )
 
         notification.show()
+
+    def options(self, parser, env):
+        super(NotifyPlugin, self).options(parser, env)
+        parser.add_option('--no-start-message', action='store_false', dest='show_start_message')
+        options, args = parser.parse_args()
+        print getattr(options, 'show_start_message')
+        self.show_start_message = getattr(options, 'show_start_message', True)
