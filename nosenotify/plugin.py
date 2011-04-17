@@ -24,7 +24,7 @@ class NotifyPlugin(Plugin):
         pynotify.init("nose-notify")
         self.start_time = datetime.datetime.now()
 
-        if self.show_start_message is not False:
+        if self.show_start_message:
             self.start_notification = pynotify.Notification(
                 "Starting tests",
                 "Started at {0}".format(self.start_time.isoformat())
@@ -55,6 +55,9 @@ class NotifyPlugin(Plugin):
 
     def options(self, parser, env):
         super(NotifyPlugin, self).options(parser, env)
-        parser.add_option('--no-start-message', action='store_false', dest='show_start_message')
+        parser.add_option('--no-start-message',
+                          action='store_false',
+                          dest='show_start_message',
+                          default=True)
         options, args = parser.parse_args()
-        self.show_start_message = getattr(options, 'show_start_message', True)
+        self.show_start_message = options.show_start_message
