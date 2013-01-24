@@ -9,9 +9,13 @@ Nose plugin implementation.
 :license: BSD, see doc/LICENSE for more details.
 """
 
-import pynotify
 import datetime
 from nose.plugins import Plugin
+
+try:
+    import pynotify
+except ImportError:
+    from nosenotify import adapters as pynotify
 
 
 class NotifyPlugin(Plugin):

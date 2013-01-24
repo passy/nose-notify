@@ -22,6 +22,7 @@ setup(
     description="A nose plugin to display testsuite progress in the notify osd",
     url="http://github.com/passy/nose-notify",
     packages=['nosenotify'],
+    package_data={'nosenotify': ['images/*']},
     long_description=__doc__,
     requires=['nose (>=0.10)'],
     classifiers=[
