@@ -9,7 +9,7 @@ Aternative pynotify implementation falling back to ``notify-send``.
 :license: BSD, see doc/LICENSE for more details.
 """
 
-import commands
+import subprocess
 import os
 
 
@@ -37,14 +37,13 @@ class Notification(object):
 
     def show(self):
         command_header = self.__get_command_header()
-        msg = '{0} "{1}" "{2}"'.format(command_header, self.title, self.body)
-        commands.getoutput(msg)
+        subprocess.call(command_header + [self.title, self.body])
 
     def __get_command_header(self):
-        command_header = 'notify-send'
+        command_header = ['notify-send']
 
         if self.icon_type is not None:
             dialog_file = get_icon(self.icon_type)
-            command_header += ' --icon="{0}"'.format(dialog_file)
+            command_header.append('--icon="{0}"'.format(dialog_file))
 
         return command_header

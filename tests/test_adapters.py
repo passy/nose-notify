@@ -34,33 +34,32 @@ class HelpersTest(TestCase):
 
 class NotificationTest(TestCase):
     @istest
-    @patch('commands.getoutput')
+    @patch('subprocess.call')
     @patch('nosenotify.adapters.get_icon')
-    def shows_a_notification_with_icon(self, get_icon, getoutput):
+    def shows_a_notification_with_icon(self, get_icon, call):
         get_icon.return_value = 'some-icon.png'
 
         notification = Notification('some title', 'some body', 'some-icon')
         notification.show()
 
-        getoutput.assert_called_with(
-            'notify-send --icon="some-icon.png" "some title" "some body"')
+        call.assert_called_with(['notify-send', '--icon="some-icon.png"',
+                                 'some title', 'some body'])
 
     @istest
-    @patch('commands.getoutput')
+    @patch('subprocess.call')
     @patch('nosenotify.adapters.get_icon')
-    def shows_a_notification_without_icon(self, get_icon, getoutput):
+    def shows_a_notification_without_icon(self, get_icon, call):
         notification = Notification('some title', 'some body')
         notification.show()
 
-        getoutput.assert_called_with(
-            'notify-send "some title" "some body"')
+        call.assert_called_with(['notify-send', 'some title', 'some body'])
         self.assertFalse(get_icon.called)
 
     @istest
-    @patch('commands.getoutput')
+    @patch('subprocess.call')
     @patch('nosenotify.adapters.get_icon')
-    def doesnt_trigger_if_not_shown(self, get_icon, getoutput):
+    def doesnt_trigger_if_not_shown(self, get_icon, call):
         Notification('some title', 'some body')
 
-        self.assertFalse(getoutput.called)
+        self.assertFalse(call.called)
         self.assertFalse(get_icon.called)
