@@ -24,7 +24,6 @@ class NotifyPlugin(Plugin):
     def begin(self):
         """Optionaly displays the start message."""
 
-
         pynotify.init("nose-notify")
         self.start_time = datetime.datetime.now()
 

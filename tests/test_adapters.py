@@ -60,7 +60,7 @@ class NotificationTest(TestCase):
     @patch('commands.getoutput')
     @patch('nosenotify.adapters.get_icon')
     def doesnt_trigger_if_not_shown(self, get_icon, getoutput):
-        notification = Notification('some title', 'some body')
+        Notification('some title', 'some body')
 
         self.assertFalse(getoutput.called)
         self.assertFalse(get_icon.called)

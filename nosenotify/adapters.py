@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+nosenotify.adapters
+~~~~~~~~~~~~~~~~~~~
+
+Aternative pynotify implementation falling back to ``notify-send``.
+
+:copyright: 2013, Diogo Baeder
+:license: BSD, see doc/LICENSE for more details.
+"""
+
 import commands
 import os
 

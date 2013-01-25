@@ -19,8 +19,9 @@ setup(
     version=__version__,
     author="Pascal Hartig",
     author_email="phartig@rdrei.de",
-    description="A nose plugin to display testsuite progress in the notify osd",
-    url="http://github.com/passy/nose-notify",
+    description="A nose plugin to display testsuite progress "
+    "in the notify osd",
+    url="https://github.com/passy/nose-notify",
     packages=['nosenotify'],
     package_data={'nosenotify': ['images/*']},
     long_description=__doc__,
@@ -29,6 +30,7 @@ setup(
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "Topic :: Software Development :: Testing",
         "Topic :: Software Development :: Libraries :: Python Modules"
     ],
