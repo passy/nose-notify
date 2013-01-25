@@ -2,6 +2,10 @@
 nose-notify
 ===========
 
+.. image:: https://secure.travis-ci.org/passy/nose-notify.png?branch=master
+    :target: https://secure.travis-ci.org/passy/nose-notify
+
+
 Notify-OSD notifications for Ubuntu systems on testsuite start and completion.
 
 Usage
