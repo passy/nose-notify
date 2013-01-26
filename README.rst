@@ -2,7 +2,7 @@
 nose-notify
 ===========
 
-.. image:: https://secure.travis-ci.org/passy/nose-notify.png?branch=master
+.. image:: https://api.travis-ci.org/passy/nose-notify.png
     :target: https://travis-ci.org/passy/nose-notify
 
 
