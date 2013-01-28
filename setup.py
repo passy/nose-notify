@@ -23,7 +23,7 @@ setup(
     "in the notify osd",
     url="https://github.com/passy/nose-notify",
     packages=['nosenotify'],
-    package_data={'nosenotify': ['images/*']},
+    package_data={'nosenotify': ['images/*.png']},
     long_description=__doc__,
     requires=['nose (>=0.10)'],
     classifiers=[
