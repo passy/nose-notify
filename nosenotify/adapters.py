@@ -44,6 +44,6 @@ class Notification(object):
 
         if self.icon_type is not None:
             dialog_file = get_icon(self.icon_type)
-            command_header.append('--icon="{0}"'.format(dialog_file))
+            command_header.append('--icon={0}'.format(dialog_file))
 
         return command_header

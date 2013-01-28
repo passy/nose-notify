@@ -42,7 +42,7 @@ class NotificationTest(TestCase):
         notification = Notification('some title', 'some body', 'some-icon')
         notification.show()
 
-        call.assert_called_with(['notify-send', '--icon="some-icon.png"',
+        call.assert_called_with(['notify-send', '--icon=some-icon.png',
                                  'some title', 'some body'])
 
     @istest
