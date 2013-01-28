@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Version 0.4.2
+-------------
+
+    * Re-upload of the package, previous build didn't include images.
+
 Version 0.4.1
 -------------
 
