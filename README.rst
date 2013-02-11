@@ -6,7 +6,8 @@ nose-notify
     :target: https://travis-ci.org/passy/nose-notify
 
 
-Notify-OSD notifications for Ubuntu systems on testsuite start and completion.
+Notify-OSD notifications for systems with libnotify support (e. g. Ubuntu)
+on testsuite start and completion.
 
 Usage
 -----
